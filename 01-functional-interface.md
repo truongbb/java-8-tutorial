@@ -9,11 +9,11 @@ tức là interface mà chỉ có 1 abstract method duy nhất (không tính def
 ## 2. WHY?
 - Tại sao phải có `funtional interface`?
 
-    - Thực ra functional inteface sinh ra để nhằm implement một trong 5 nguyên lý của [SOLID](https://toidicodedao.com/2015/03/24/solid-la-gi-ap-dung-cac-nguyen-ly-solid-de-tro-thanh-lap-trinh-vien-code-cung/), đó chính là nguyên lý đầu tiên: `Single responsibility principle (S)` là `mỗi một class/interface nên chỉ chứa 1 nhiệm vụ duy nhất`.
+    - Thực ra `functional inteface` sinh ra để nhằm implement một trong 5 nguyên lý của [SOLID](https://toidicodedao.com/2015/03/24/solid-la-gi-ap-dung-cac-nguyen-ly-solid-de-tro-thanh-lap-trinh-vien-code-cung/), đó chính là nguyên lý đầu tiên: `Single responsibility principle (S)` là `mỗi một class/interface nên chỉ chứa 1 nhiệm vụ duy nhất`.
 
     - Để sử dụng `lambda expession`, `method reference`.
 
-    - Để tiện dụng hơn khi trước kia phải dùng kĩ thuật anonymous class.
+    - Để tiện dụng hơn khi trước kia phải dùng kĩ thuật `anonymous class`.
 
 ## 3. WHEN
 
@@ -30,7 +30,7 @@ tức là interface mà chỉ có 1 abstract method duy nhất (không tính def
 
 Sau đây là một ví dụ về `fucntional interface`, vì bên trong nó chỉ chứa một `abstract method` duy nhất:
 ```java
-public interface Ex01 {
+public interface Ex01 { // functional interface
 
 	void showMessage();
 
@@ -40,7 +40,7 @@ Interface bên dưới đây *KHÔNG* là một `fucntional interface`, vì bên
 
 
 ```java
-public interface Ex02 {
+public interface Ex02 { // NOT functional interface
 
 	String getMessage();
 
@@ -51,7 +51,7 @@ public interface Ex02 {
 
 Nhưng khi có 1 `abstract method` và 1 `default method` thì interface đó vẫn được coi là `functional interface`:
 ```java
-public interface Ex03 {
+public interface Ex03 {// functional interface
 
 	void showMessage(String mess);
 
@@ -68,7 +68,7 @@ public interface Ex03 {
 
 Thậm chí, khi bạn cài đè phương thức của class `Object` thì interface đó vẫn là functional interface với 1 abstract method bên trong nó:
 ```java
-public interface Ex04 {
+public interface Ex04 {// functional interface
 
 	void showMessage(String mess);
 
@@ -80,7 +80,7 @@ public interface Ex04 {
 
 Còn nếu như chỉ có `override method` mà không có `abstract medthod` thì cũng không là `fucntional interface` nhé, vì điều kiện cần của `functional interface` là phải có duy nhất 1 `abstract method` và method `equals` kia là của class `Object` chứ không phải của interface của chúng ta:
 ```java
-public interface Ex06_Error01 {
+public interface Ex06_Error01 {// NOT functional interface
 
 	@Override
 	boolean equals(Object other);
@@ -90,7 +90,7 @@ public interface Ex06_Error01 {
 
 Interface của chúng ta chứa cả `override method` và `default method` mà không chứa một `abstract method` nào thì sao? Nó vẫn không là `functional interface` đâu:
 ```java
-public interface Ex07_Error02 {
+public interface Ex07_Error02 {// NOT functional interface
 
 	@Override
 	boolean equals(Object other);
@@ -105,7 +105,7 @@ public interface Ex07_Error02 {
 Nếu như sử dụng annotation `@FunctionalInterface`, annotation này sẽ xác định đây là 1 `functional interface` và khi biên dịch nó sẽ phát hiện ra xem nếu trong `interface` này không thỏa mãn các điều  kiện của `functional interface` nó sẽ báo lỗi:
 ```java
 @FunctionalInterface
-public interface Ex05_Annotation {
+public interface Ex05_Annotation {// functional interface
 
 	void showMessage(String mess);
 
@@ -119,4 +119,31 @@ public interface Ex05_Annotation {
 }
 ```
 
-Còn cách sử dụng `functional interface` thì sao? Vẫn như những gì đã được biết, chúng ta sẽ tạo một `implement` của `interface` và khởi tạo 1 `instance` từ nó thôi, rất đơn giản, nhưng nếu kết hợp với sử dụng `lambda expression` thì mọi chuyện sẽ rất kì diệu. Phần này sẽ được đề cập sau.
+Còn cách sử dụng `functional interface` thì sao? Vẫn như những gì đã được biết, chúng ta sẽ tạo một `implement` của `interface` (bằng cách tạo hoàn toàn một class mới hoặc sử dụng kĩ thuật `anonymous class`) và khởi tạo 1 `instance` từ nó thôi, rất đơn giản:
+```java
+Ex03 ex03 = new Ex03() {
+    @Override
+    public void showMessage(String mess) {
+        System.out.println(mess);
+    }
+};
+ex03.showMessage("124567575");
+```
+
+Nhưng nếu kết hợp với sử dụng `lambda expression` thì mọi chuyện sẽ rất kì diệu:
+```java
+Ex03 sampleChuan = (mess) -> {
+    System.out.println(mess);
+};
+```
+hoặc
+```java
+Ex03 sample = mess -> System.out.println(mess);
+```
+
+Và sử dụng chúng như bình thường:
+```java
+sample.showMessage("abccccccccccccccc");
+```
+
+Phần `lambda expression` này sẽ được đề cập sau.
