@@ -11,7 +11,7 @@ tức là interface mà chỉ có 1 abstract method duy nhất (không tính def
 
     - Thực ra `functional inteface` sinh ra để nhằm implement một trong 5 nguyên lý của [SOLID](https://toidicodedao.com/2015/03/24/solid-la-gi-ap-dung-cac-nguyen-ly-solid-de-tro-thanh-lap-trinh-vien-code-cung/), đó chính là nguyên lý đầu tiên: `Single responsibility principle (S)` là `mỗi một class/interface nên chỉ chứa 1 nhiệm vụ duy nhất`.
 
-    - Để sử dụng `lambda expession`, `method reference`.
+    - Để sử dụng [`lambda expession`](./02-lambda-expression.md), [`method reference`](./03-method-reference.md).
 
     - Để tiện dụng hơn khi trước kia phải dùng kĩ thuật `anonymous class`.
 
