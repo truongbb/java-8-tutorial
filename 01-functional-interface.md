@@ -146,4 +146,4 @@ Và sử dụng chúng như bình thường:
 sample.showMessage("abccccccccccccccc");
 ```
 
-Phần `lambda expression` này sẽ được đề cập sau.
+Phần `lambda expression` này sẽ được đề cập [ở bài sau](./02-lambda-expression.md).
