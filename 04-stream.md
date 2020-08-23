@@ -69,9 +69,9 @@ for (Person person : youngPeople) {
 - Còn java 8 sẽ làm thế này, đây là cách sử dụng `anonymous class` nhé:
 
 ```java
-people.stream().filter(new Predicate(){
+people.stream().filter(new Predicate() {
 	@Override
-	public boolean test(Person person){
+	public boolean test(Person person) {
 		return person.getAge() >= 20;
 	}
 }}).forEach(System.out::println);
@@ -117,9 +117,9 @@ Vì vậy đoạn `people.stream().map(Person::getName)` sẽ được diễn gi
 
 ```java
 people.stream()
-	.map(new Function<Person, String>{
+	.map(new Function<Person, String> {
 		@Override
-		public String apply(Person person){
+		public String apply(Person person) {
 			return person.getName();
 		}
 	})
