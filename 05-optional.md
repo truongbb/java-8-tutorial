@@ -134,4 +134,4 @@ findTheFirstMatchUsingOptional("z", students).map(t -> {
 });
 ```
 
-Nói chung, `Optional` là giải pháp hay và hiệu quả khi tối ưu code, tránh `null` và không phải kiểm tra `null`, ngoài ra còn nhiều hàm hay và thường được sử dụng khác của `Optional`, xem tại https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html
+Nói chung, `Optional` là giải pháp hay và hiệu quả khi tối ưu code, tránh `null` và không phải kiểm tra `null`, ngoài ra còn nhiều hàm hay và thường được sử dụng khác của `Optional`, xem tại [document chính chủ của Oracle](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
