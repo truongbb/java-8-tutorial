@@ -5,3 +5,4 @@
 03. [Java 8 - Method reference](./03-method-reference.md)
 04. [Java 8 - Stream](./04-stream.md)
 05. [Java 8 - Optional](./05-optional.md)
+06. [Java 8 - Optional best pratice](./05-optional-best-pratice.md)
