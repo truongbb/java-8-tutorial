@@ -206,10 +206,10 @@ Khác với `orElse` về cú pháp, `orElseGet` nhận vào một `Supplier` in
 
 ```java
 Student student = new Student(1, "James", new Date());
-String studentFullName = Optional.ofNullable(student.getFullName()).orElse(Demo::getDefaultName); // James
+String studentFullName = Optional.ofNullable(student.getFullName()).orElseGet(Demo::getDefaultName); // James
 
 student = new Student();
-String studentFullName1 = Optional.ofNullable(student.getFullName()).orElse(Demo::getDefaultName); // default name
+String studentFullName1 = Optional.ofNullable(student.getFullName()).orElseGet(Demo::getDefaultName); // default name
 ```
 
 ### 4.3 Sự khác biệt giữa `orElse` và `orElseGet`
