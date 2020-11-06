@@ -1,6 +1,6 @@
 # JAVA 8 - OPTIONAL 
 
-Optional được manh nha ý tưởng từ [một câu hỏi trên Stackoverflow](https://stackoverflow.com/questions/26327957/should-java-8-getters-return-optional-type/26328555#26328555) do chính Brian Goetz, người làm việc trong mảng ngôn ngữ Java của Oracle. Được tung ra từ phiên bản 1.8 của java, tới phiên bản 10, 11 được cải thiện, tới nay Optional là một công cụ cực kì mạnh mẽ của java để tránh được exception không mong muốn và khiến code của các Java dev trở nên sạch đẹp hơn.
+Optional được manh nha ý tưởng từ [một câu trả lời trên Stackoverflow](https://stackoverflow.com/questions/26327957/should-java-8-getters-return-optional-type/26328555#26328555) của chính Brian Goetz, người làm việc trong mảng ngôn ngữ Java của Oracle. Được tung ra từ phiên bản 1.8 của java, tới phiên bản 9, 10, 11 được cải thiện, tới nay Optional là một công cụ cực kì mạnh mẽ của java để tránh được exception không mong muốn và khiến code của các Java dev trở nên sạch đẹp hơn.
 
 [`Optional`](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) trong java 8 là một container, nó bao bọc các kiểu dữ liệu khác. Mục đích của `Optional` là tránh `NullPointerException` và tối ưu hóa code khi sử dụng các hàm tiện tích của nó. Khi kết hợp với các Java 8 API như `stream`, `map`, `filter`, ... sẽ rất mạnh mẽ và giúp code sạch sẽ hơn.
 
@@ -144,7 +144,7 @@ Quên mất, khi muốn thao tác với object bên trong `Optional` bao bọc t
 
 Khi sử dụng phương thức này, ta cần truyền vào trong một `Consumer` instance để viết các nội dung mà ta muốn thực thi. Hàm này làm 2 việc, check `Optional` instance đó có non-null hay không, nếu có thì sẽ thực hiện nội dung mà ta truyền vào. 
 
-Vậy nên hãy <em><b>quên đi</b></em> những công đoạn if-else check `null` nhàm chán mà ta vẫn làm và hay quên, sử dụng `ifPresent` và code của bạn sẽ sạch hơn, nói không với `NullPointerException`!
+Vậy nên hãy <em><b>quên đi</b></em> những công đoạn `if-else` check `null` nhàm chán mà ta vẫn làm và hay quên, sử dụng `ifPresent` và code của bạn sẽ sạch hơn, nói không với `NullPointerException`!
 
 Thế thì đoạn code bên trên:
 
